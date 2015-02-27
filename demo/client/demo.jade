@@ -1,0 +1,61 @@
+template(name="layout")
+  +famousContext id="mainCtx"
+    +HeaderFooterLayout headerSize=50
+      +Surface target="header" template="header" style="background: red"
+      +Modifier target="content" align="[0.5,0.5]" origin="[0.5,0.5]"
+        +yield
+
+template(name="header")
+  a(href="/siteDemo") site w/borders (maximum-width)
+  | &nbsp;|&nbsp;
+  a(href="/photoDemo") photo demo (aspect-ratio)
+  | &nbsp;|&nbsp;
+  a(href="/scaleDemo") scale demo
+  | &nbsp;|&nbsp;
+  a(href="/paddingDemo") padding demo
+
+template(name="siteDemo")
+  +Surface class="back"
+    | 
+  +SizeConstraint max="[600,undefined]"
+    +Surface class="content"
+      | max-width: 600px
+
+template(name="photoDemo")
+  +Surface class="photoBack"
+    | 
+  +SizeConstraint max="[600,400]" ratio="[4,3]"
+    +Surface class="photo-frame"
+      | 
+    +StateModifier align="[0.5,0.5]" origin="[0.5,0.5]" scaleX=0.85 scaleY=0.8
+      +ImageSurface class="photo-content" content="https://raw.githubusercontent.com/IjzerenHein/famous-sizeconstraint/master/examples/photo/photo.jpg"
+        | 
+
+template(name="scaleDemo")
+  +Surface class="back"
+    | 
+  +Modifier
+    +SizeConstraint scale="[1,1]"
+      +Surface class="content"
+        | scale: [1, 1]
+    +SizeConstraint scale="[0.5,0.5]"
+      +Surface class="content"
+        | scale: [0.5, 0.5]
+    +SizeConstraint scale="[0.7,0.2]"
+      +Surface class="content"
+        | scale: [0.7, 0.2]
+
+template(name="paddingDemo")
+  +Surface class="back"
+    | 
+  +Modifier
+    +SizeConstraint padding="[20,20]"
+      +Surface class="content"
+        | padding: [20,20]
+    +SizeConstraint padding="[undefined,200]"
+      +Surface class="content"
+        | padding: [undefined, 200]
+    +SizeConstraint padding="[400,undefined]"
+      +Surface class="content"
+        | padding: [400, undefined]
+
