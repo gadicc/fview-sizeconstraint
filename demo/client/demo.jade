@@ -3,7 +3,7 @@ template(name="layout")
     +HeaderFooterLayout headerSize=50
       +Surface target="header" template="header" style="background: red"
       +Modifier target="content" align="[0.5,0.5]" origin="[0.5,0.5]"
-        +yield
+        +yield 
 
 template(name="header")
   a(href="/siteDemo") site w/borders (maximum-width)
@@ -15,47 +15,47 @@ template(name="header")
   a(href="/paddingDemo") padding demo
 
 template(name="siteDemo")
-  +Surface class="back"
+  +Surface class="back" translate="[0,0,0]"
     | 
   +SizeConstraint max="[600,undefined]"
-    +Surface class="content"
+    +Surface class="content" translate="[0,0,1]"
       | max-width: 600px
 
 template(name="photoDemo")
-  +Surface class="photoBack"
+  +Surface class="photoBack" translate="[0,0,0]"
     | 
   +SizeConstraint max="[600,400]" ratio="[4,3]"
-    +Surface class="photo-frame"
+    +Surface class="photo-frame" translate="[0,0,1]"
       | 
-    +StateModifier align="[0.5,0.5]" origin="[0.5,0.5]" scaleX=0.85 scaleY=0.8
+    +StateModifier align="[0.5,0.5]" origin="[0.5,0.5]" translate="[0,0,2]" scaleX=0.85 scaleY=0.8
       +ImageSurface class="photo-content" content="https://raw.githubusercontent.com/IjzerenHein/famous-sizeconstraint/master/examples/photo/photo.jpg"
         | 
 
 template(name="scaleDemo")
-  +Surface class="back"
+  +Surface class="back" translate="[0,0,0]"
     | 
   +Modifier
     +SizeConstraint scale="[1,1]"
-      +Surface class="content"
+      +Surface class="content" translate="[0,0,1]"
         | scale: [1, 1]
     +SizeConstraint scale="[0.5,0.5]"
-      +Surface class="content"
+      +Surface class="content" translate="[0,0,2]"
         | scale: [0.5, 0.5]
     +SizeConstraint scale="[0.7,0.2]"
-      +Surface class="content"
+      +Surface class="content" translate="[0,0,3]"
         | scale: [0.7, 0.2]
 
 template(name="paddingDemo")
-  +Surface class="back"
+  +Surface class="back" translate="[0,0,0]"
     | 
   +Modifier
     +SizeConstraint padding="[20,20]"
-      +Surface class="content"
+      +Surface class="content" translate="[0,0,1]"
         | padding: [20,20]
     +SizeConstraint padding="[undefined,200]"
-      +Surface class="content"
+      +Surface class="content" translate="[0,0,2]"
         | padding: [undefined, 200]
     +SizeConstraint padding="[400,undefined]"
-      +Surface class="content"
+      +Surface class="content" translate="[0,0,3]"
         | padding: [400, undefined]
 

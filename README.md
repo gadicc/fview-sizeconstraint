@@ -1,7 +1,7 @@
 # fview-sizeconstraint
 
 This is [IjzerenHein's
-SizeContrains](https://github.com/IjzerenHein/famous-sizeconstraint)
+SizeContraint](https://github.com/IjzerenHein/famous-sizeconstraint)
 packaged for Meteor to work with famous-views and either raix:famono or mjn:famous.
 
 See the upstream [README](https://github.com/IjzerenHein/famous-sizeconstraint) and
@@ -25,8 +25,10 @@ SizeConstraint makes it possible to set the following constraints on renderables
 
 Notes:
 
-1. Seems to be a bug in ordering that I'm looking into, when changing routes
+1. Be sure to translate your zIndex if using with RenderController (or any
+other situation where famo.us recreates the DOM)
 1. scaleX,Y,Z is broken in famous-views < 0.1.33
+1. There does seem to be a positioning issue which warrants further investigation
 
 ## Examples:
 
